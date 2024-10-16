@@ -1,9 +1,11 @@
-package com.example.myapplication.ui.theme
+package com.example.myapplication
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -12,7 +14,28 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun InvestmentCard(code: String, earnings: String, amount: String, date: String) {
+fun InvestmentCard(code: String, earnings: String, amount: String, date: String, onMoreDetailsClick: () -> Unit = {} // adiciona um parâmetro com ação de clique
+) {
+    val showDialog = remember { mutableStateOf(false) }
+
+    if (showDialog.value) {
+        AlertDialog(
+            onDismissRequest = { showDialog.value = false },
+            title = { Text("Detalhes do investimento") },
+            text = { Text("Aqui estão mais informações sobre o investimento.") },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        showDialog.value = false
+                        onMoreDetailsClick()
+                    }
+                ) {
+                    Text("OK")
+                }
+            }
+        )
+    }
+
     Card(
         shape = RoundedCornerShape(8.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
@@ -46,7 +69,7 @@ fun InvestmentCard(code: String, earnings: String, amount: String, date: String)
                 }
             }
             Spacer(modifier = Modifier.height(8.dp))
-            TextButton(onClick = { /* ação do botão Mais detalhes */ }) {
+            TextButton(onClick = { showDialog.value = true }) {
                 Text(text = "Mais detalhes", color = Color.Gray)
             }
         }
