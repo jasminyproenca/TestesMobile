@@ -40,5 +40,5 @@ Abra o Android Studio e selecione File > Open,
 
 ## Estrutura do Projeto
 
-Componentes: O componente InvestmentCard está localizado em com.example.myapplication.ui.theme.
-Testes: Os testes para o InvestmentCard estão na pasta com.example.myapplication.ui.tests.
+Componentes: O componente InvestmentCard está localizado em app/src/main/java/com/example/myapplication/InvestmentCard.kt
+Testes: Os testes para o InvestmentCard estão na pasta app/src/androidTest/java/com/example/myapplication/InvestmentCardTest.kt
