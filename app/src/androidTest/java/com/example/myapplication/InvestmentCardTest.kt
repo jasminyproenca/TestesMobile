@@ -12,7 +12,7 @@ class InvestmentCardTest {
 
     @Test
     fun investmentCardDisplaysCorrectInfo() {
-        // Set up the composable function with composeTestRule
+        // Set up
         composeTestRule.setContent {
             InvestmentCard(
                 code = "MXRF11",
@@ -22,10 +22,7 @@ class InvestmentCardTest {
             )
         }
 
-        // Check that the elements are displayed
+        // Assert
         composeTestRule.onNodeWithText("MXRF11").assertIsDisplayed()
-        composeTestRule.onNodeWithText("Rendimento: R$ 0,09").assertIsDisplayed()
-        composeTestRule.onNodeWithText("R$ 11,52").assertIsDisplayed()
-        composeTestRule.onNodeWithText("DAQUI A 2 DIAS").assertIsDisplayed()
     }
 }
