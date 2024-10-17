@@ -64,8 +64,18 @@ class MainActivity : ComponentActivity() {
                             "R$ 18,75",
                             "DAQUI A 3 DIAS"
                         )
-                        InvestmentCard("CPTS11", "Rendimento: R$ 0,07", "R$ 2,95", "DAQUI A 5 DIAS")
-                        InvestmentCard("MCHY11", "Rendimento: NÃO INFORMADO", "--", "NÃO INFORMADO")
+                        InvestmentCard(
+                            "CPTS11",
+                            "Rendimento: R$ 0,07",
+                            "R$ 2,95",
+                            "DAQUI A 5 DIAS"
+                        )
+                        InvestmentCard(
+                            "MCHY11",
+                            "Rendimento: NÃO INFORMADO",
+                            "--",
+                            "NÃO INFORMADO"
+                        )
                     }
                 }
             }

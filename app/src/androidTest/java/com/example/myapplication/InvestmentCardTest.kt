@@ -22,9 +22,11 @@ class InvestmentCardTest {
                 date = "DAQUI A 2 DIAS"
             )
         }
+        // Executa clique no botão "Mais detalhes"
+        composeTestRule.onNodeWithText("Mais detalhes").performClick()
 
-        // Assert
-        composeTestRule.onNodeWithText("MXRF11").assertIsDisplayed()
+        // Verifica se o título do alerta é exibido
+        composeTestRule.onNodeWithText("Detalhes do investimento").assertIsDisplayed()
     }
 
     @Test
@@ -40,7 +42,7 @@ class InvestmentCardTest {
         }
 
         // Executa clique no botão "Mais detalhes"
-        composeTestRule.onNodeWithText("MXRF11").performClick()
+        composeTestRule.onNodeWithText("Mais detalhes").performClick()
 
         // Verifica se o título do alerta é exibido
         composeTestRule.onNodeWithText("Detalhes do investimento").assertIsDisplayed()
